@@ -7,7 +7,7 @@ function UpdOBJECTinState() {
     model: "Mustang",
  });
     function handleYearChange(event){
-      setCar({ ...car, year:event.target.value});
+      setCar(c => ({...c, year:event.target.value}));
 
     }
     function handleMakeChange(event){
