@@ -7,30 +7,44 @@ function UpdARRAYinOBJ(){
     const[carMake, setCarMake] = useState("");
     const[carModel, setCarModel] = useState("");
 
-    function handleYearChange(){
+
+    function handleAddCar(){
+        const newCar ={year: carYear, make: carMake, model: carModel}
+        setCars(c => [...c, newCar])
+    }
+
+    function handleRemoveCar(){
 
     }
 
-    function handleMakeChange(){
-
+    function handleYearChange(event){
+        setCarYear(event.target.value);
     }
 
-    function handleDayChange(){
+    function handleMakeChange(event){
+        setCarMake(event.target.value);
+    }
 
+    function handleModelChange(event){
+        setCarModel(event.target.value);
     }
 
     return(<div>
              <h2>List Of Car Object </h2>
 
             <ul>
-            
+                {cars.map((car, index) => 
+                <li key ={index}>
+                    {car.year} {car.make} {car.model}
+                </li>)}
+                
             </ul>
 
             <input type="number" value={carYear} onChange={handleYearChange}/> <br/>
             <input type="text" value={carMake} onChange={handleMakeChange}  placeholder="Enter car make!"/> <br/>
-            <input type="text" value={carModel} onChange={handleYearChange} placeholder="Enter car model!"/> <br/>
+            <input type="text" value={carModel} onChange={handleModelChange} placeholder="Enter car model!"/> <br/>
 
-            <button> Add Car </button>
+            <button onClick={handleAddCar}> Add Car </button>
         </div>);
 
 
