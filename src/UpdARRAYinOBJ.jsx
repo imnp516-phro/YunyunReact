@@ -3,7 +3,7 @@ import {useState} from 'react';
 function UpdARRAYinOBJ(){
 
     const[cars, setCars] = useState([]);
-    const[carYear, setCarYear] = useState(new Date().getFullYear());;
+    const[carYear, setCarYear] = useState(new Date().getFullYear());    
     const[carMake, setCarMake] = useState("");
     const[carModel, setCarModel] = useState("");
 
@@ -11,6 +11,10 @@ function UpdARRAYinOBJ(){
     function handleAddCar(){
         const newCar ={year: carYear, make: carMake, model: carModel}
         setCars(c => [...c, newCar])
+        // sau khi add thi reset lai value
+        setCarYear(newDate().getFullYear());
+        setCarMake("");
+        setCarModel("");
     }
 
     function handleRemoveCar(){
